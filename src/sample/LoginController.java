@@ -43,17 +43,17 @@ public class LoginController {
         String password = this.password.getText().trim();
         if (username.equals("")){
             this.username.setStyle("-jfx-unfocus-color: red");
-            UIHelpers.showAlert(anchorPane.getScene().getWindow(),"Username Empty!","Please enter username to log in");
+            UIHelpers.showAlert(anchorPane.getScene().getWindow(),anchorPane,"Username Empty!","Please enter username to log in");
             return;
         }
         if (password.equals("")){
             this.password.setStyle("-jfx-unfocus-color: red");
-            UIHelpers.showAlert(anchorPane.getScene().getWindow(),"Password Empty!","Please enter the password to log in");
+            UIHelpers.showAlert(anchorPane.getScene().getWindow(),anchorPane,"Password Empty!","Please enter the password to log in");
             return;
         }
         User user = DerbyHandler.getInstance().getUser(username,MD5.getHash(password));
         if(user == null){
-            UIHelpers.showAlert(anchorPane.getScene().getWindow(),"Invalid Credentials!","Please enter the correct username and password!");
+            UIHelpers.showAlert(anchorPane.getScene().getWindow(),anchorPane,"Invalid Credentials!","Please enter the correct username and password!");
         }
         else {
             System.out.println(user.toString());
