@@ -1,4 +1,4 @@
-package sample;
+package controllers;
 
 import com.jfoenix.controls.*;
 import database.DerbyHandler;
@@ -57,9 +57,8 @@ public class LoginController {
         }
         else {
             System.out.println(user.toString());
-            this.username.getScene().getWindow().hide();
+            new UIHelpers().getNewWindowAndHide("main.fxml","Stock Management System: Dickwella Division",anchorPane);
         }
-
 
     }
 

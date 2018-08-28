@@ -8,29 +8,29 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="479.0" prefWidth="488.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginController">
+<AnchorPane fx:id="anchorPane" prefHeight="479.0" prefWidth="488.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.LoginController">
    <children>
       <ImageView fitHeight="182.0" fitWidth="348.0" layoutX="71.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../img/dikwella.jpg" />
          </image>
       </ImageView>
-      <JFXButton fx:id="login" layoutX="115.0" layoutY="383.0" onAction="#attemptLogin" prefHeight="37.0" prefWidth="121.0" ripplerFill="BLACK" style="-fx-border-radius: 5px; -fx-background-color: #58D68D;" text="පිවිසෙන්න" textFill="WHITE">
+      <JFXButton fx:id="login" defaultButton="true" layoutX="115.0" layoutY="383.0" onAction="#attemptLogin" prefHeight="37.0" prefWidth="121.0" ripplerFill="BLACK" style="-fx-border-radius: 5px; -fx-background-color: #2ECC71;" text="පිවිසෙන්න" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="exit" layoutX="255.0" layoutY="383.0" onAction="#exit" prefHeight="37.0" prefWidth="121.0" ripplerFill="BLACK" style="-fx-background-color: #E74C3C;" text="ඉවත්වන්න" textFill="WHITE">
+      <JFXButton fx:id="exit" cancelButton="true" layoutX="255.0" layoutY="383.0" onAction="#exit" prefHeight="37.0" prefWidth="121.0" ripplerFill="BLACK" style="-fx-background-color: #C0392B;" text="ඉවත්වන්න" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXButton>
-      <JFXTextField fx:id="username" focusColor="#3f62cd" labelFloat="true" layoutX="151.0" layoutY="240.0" prefHeight="37.0" prefWidth="188.0" promptText="Username">
+      <JFXTextField fx:id="username" focusColor="#3f62cd" labelFloat="true" layoutX="119.0" layoutY="240.0" prefHeight="37.0" prefWidth="263.0" promptText="Username">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </JFXTextField>
-      <JFXPasswordField fx:id="password" labelFloat="true" layoutX="151.0" layoutY="303.0" prefHeight="37.0" prefWidth="188.0" promptText="Password">
+      <JFXPasswordField fx:id="password" labelFloat="true" layoutX="118.0" layoutY="303.0" prefHeight="37.0" prefWidth="263.0" promptText="Password">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

@@ -22,7 +22,7 @@ import java.io.IOException;
 public final class UIHelpers {
 
     //JFX Alert
-    public static void showAlert(Window window, Node blurNode, String heading, String body){
+    public static void showAlert(Window window, Node blurNode, String heading, String body) {
         JFXAlert<String> alert = new JFXAlert<>((Stage) window);
         alert.initModality(Modality.APPLICATION_MODAL);
         alert.setOverlayClose(false);
@@ -42,43 +42,63 @@ public final class UIHelpers {
                 alert.hideWithAnimation();
             }
         };
-        cancelButton.addEventHandler(MouseEvent.MOUSE_CLICKED,eventHandler);
+        cancelButton.addEventHandler(MouseEvent.MOUSE_CLICKED, eventHandler);
         blurNode.setEffect(blur);
         layout.setActions(cancelButton);
         alert.setContent(layout);
         alert.showAndWait();
     }
 
-    public void getNewWindow(String fxml,String title){
+    public void getNewWindow(String fxml, String title) {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("../resources/fxml/"+fxml));
+            root = FXMLLoader.load(getClass().getResource("../resources/fxml/" + fxml));
             Stage stage = new Stage();
             stage.setTitle(title);
+            stage.initModality(Modality.APPLICATION_MODAL);
             stage.setScene(new Scene(root));
             stage.show();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public void getNewWindowAndHide(String fxml,String title,Node node){
+    public void getNewWindowWithBlur(String fxml, String title, Node node) {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("../resources/fxml/"+fxml));
+            root = FXMLLoader.load(getClass().getResource("../resources/fxml/" + fxml));
+            Stage stage = new Stage();
+            stage.setTitle(title);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setScene(new Scene(root));
+            node.setEffect(new BoxBlur(4, 4, 3));
+            EventHandler eventHandler = new EventHandler() {
+                @Override
+                public void handle(Event event) {
+                    node.setEffect(null);
+                }
+            };
+            stage.setOnCloseRequest(eventHandler);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void getNewWindowAndHide(String fxml, String title, Node node) {
+        Parent root;
+        try {
+            root = FXMLLoader.load(getClass().getResource("../resources/fxml/" + fxml));
             Stage stage = new Stage();
             stage.setTitle(title);
             stage.setScene(new Scene(root));
             stage.show();
-            // Hide this current window (if this is what you want)
+            // Hide this current window
             node.getScene().getWindow().hide();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 
 
 }
