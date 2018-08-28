@@ -15,6 +15,7 @@ public class Main extends Application {
         primaryStage.setTitle("Login");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
+        primaryStage.setResizable(false);
         System.out.println(Thread.currentThread().getName());
 
         DerbyHandler.getInstance();
